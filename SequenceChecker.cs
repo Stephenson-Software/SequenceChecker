@@ -30,11 +30,6 @@ namespace Hacker_Challenge_6_17_21 {
         public bool IsSecondArrayASubsequenceOfFirstArray() {
             List<int> foundMatches = GetFoundMatches();
 
-            if (foundMatches == null)
-            {
-                return false;
-            }
-
             if (debug) {
                 Console.WriteLine("[DEBUG] Second Array: " + string.Join(", ", secondArray));
                 Console.WriteLine("[DEBUG] Found Matches: " + string.Join(", ", foundMatches.ToArray()));
@@ -49,15 +44,17 @@ namespace Hacker_Challenge_6_17_21 {
 
             int index = 0;
             for (int i = 0; i < firstArray.Length; i++) {
-                if (index == secondArray.Length) {
-                    return null;
-                }
 
                 if (debug) { Console.WriteLine("[DEBUG] Comparing " + firstArray[i] + " with " + secondArray[index]); }
 
                 if (firstArray[i] == secondArray[index]) {
                     foundMatches.Add(firstArray[i]);
                     index++;
+                }
+
+                if (index == secondArray.Length) {
+                    // we have already found the sequence
+                    break;
                 }
             }
             return foundMatches;
@@ -66,10 +63,10 @@ namespace Hacker_Challenge_6_17_21 {
         static void Main() {
             SequenceChecker checker = new SequenceChecker();
 
-            int[] firstArray = new int[] { 1, 2, 3, 4 };
+            int[] firstArray = new int[] { 1, 2, 3, 4, 5, 6 };
             int[] secondArray = new int[] { 1, 3, 4 };
 
-            checker.Initialize(firstArray, secondArray);
+            checker.Initialize(firstArray, secondArray, true);
 
             checker.PerformCheck();
         }
