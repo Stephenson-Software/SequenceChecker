@@ -53,7 +53,7 @@ namespace Hacker_Challenge_6_17_21 {
                 }
 
                 if (index == secondArray.Length) {
-                    // we have already found the sequence
+                    // we have already found the sequence, further checking would result in an exception
                     break;
                 }
             }
@@ -63,10 +63,10 @@ namespace Hacker_Challenge_6_17_21 {
         static void Main() {
             SequenceChecker checker = new SequenceChecker();
 
-            int[] firstArray = new int[] { 1, 2, 3, 4, 5, 6 };
+            int[] firstArray = new int[] { 1, 2, 3, 4 };
             int[] secondArray = new int[] { 1, 3, 4 };
 
-            checker.Initialize(firstArray, secondArray, true);
+            checker.Initialize(firstArray, secondArray);
 
             checker.PerformCheck();
         }
