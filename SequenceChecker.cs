@@ -30,6 +30,11 @@ namespace Hacker_Challenge_6_17_21 {
         public bool IsSecondArrayASubsequenceOfFirstArray() {
             List<int> foundMatches = GetFoundMatches();
 
+            if (foundMatches == null)
+            {
+                return false;
+            }
+
             if (debug) {
                 Console.WriteLine("[DEBUG] Second Array: " + string.Join(", ", secondArray));
                 Console.WriteLine("[DEBUG] Found Matches: " + string.Join(", ", foundMatches.ToArray()));
