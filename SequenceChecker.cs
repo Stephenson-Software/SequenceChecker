@@ -9,6 +9,10 @@ namespace Hacker_Challenge_6_17_21 {
         int[] firstArray;
         int[] secondArray;
 
+        bool result;
+
+        // public methods -------------------------------------------------------------
+
         // initializes the first and second arrays
         public void Initialize(int[] first, int[] second, bool d = false) {
             firstArray = first;
@@ -21,13 +25,17 @@ namespace Hacker_Challenge_6_17_21 {
             Console.WriteLine("First Array: " + string.Join(", ", firstArray));
             Console.WriteLine("Second Array: " + string.Join(", ", secondArray));
 
-            bool result = IsSecondArrayASubsequenceOfFirstArray();
-
-            Console.WriteLine("Is the second array a subsequence of the first array? " + result);
+            result = IsSecondArrayASubsequenceOfFirstArray();
         }
 
+        public bool getResult() {
+            return result;
+        }
+
+        // private methods -------------------------------------------------------------
+
         // checker method
-        public bool IsSecondArrayASubsequenceOfFirstArray() {
+        private bool IsSecondArrayASubsequenceOfFirstArray() {
             List<int> foundMatches = GetFoundMatches();
 
             if (debug) {
@@ -39,7 +47,7 @@ namespace Hacker_Challenge_6_17_21 {
         }
 
         // helper method to get found matches in order of discovery
-        public List<int> GetFoundMatches() {
+        private List<int> GetFoundMatches() {
             List<int> foundMatches = new List<int>();
 
             int index = 0;
@@ -59,16 +67,24 @@ namespace Hacker_Challenge_6_17_21 {
             }
             return foundMatches;
         }
+    }
 
+    class Driver {
         static void Main() {
-            SequenceChecker checker = new SequenceChecker();
-
             int[] firstArray = new int[] { 1, 2, 3, 4 };
             int[] secondArray = new int[] { 1, 3, 4 };
 
-            checker.Initialize(firstArray, secondArray);
+            bool result = IsSubsequence(firstArray, secondArray);
 
+            Console.WriteLine("Is the second array a subsequence of the first array? " + result);
+        }
+
+        // Hacker Challenge Method
+        static bool IsSubsequence(int[] first, int[] second) {
+            SequenceChecker checker = new SequenceChecker();
+            checker.Initialize(first, second);
             checker.PerformCheck();
+            return checker.getResult();
         }
     }
 }
