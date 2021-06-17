@@ -28,7 +28,7 @@ namespace Hacker_Challenge_6_17_21 {
             result = IsSecondArrayASubsequenceOfFirstArray();
         }
 
-        public bool getResult() {
+        public bool GetResult() {
             return result;
         }
 
@@ -84,7 +84,7 @@ namespace Hacker_Challenge_6_17_21 {
             SequenceChecker checker = new SequenceChecker();
             checker.Initialize(first, second);
             checker.PerformCheck();
-            return checker.getResult();
+            return checker.GetResult();
         }
     }
 }
