@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Hacker_Challenge_6_17_21
-{
-    class SequenceChecker
-    {
+namespace Hacker_Challenge_6_17_21 {
+    class SequenceChecker {
         bool debug = false;
 
         int[] firstArray;
         int[] secondArray;
 
+        // initializes the first and second arrays
         public void Initialize(int[] first, int[] second, bool d = false) {
             firstArray = first;
             secondArray = second;
             debug = d;
         }
 
+        // driver method to display relevant information, call the checker and display the result
         public void PerformCheck() {
             Console.WriteLine("First Array: " + string.Join(", ", firstArray));
             Console.WriteLine("Second Array: " + string.Join(", ", secondArray));
@@ -26,6 +26,7 @@ namespace Hacker_Challenge_6_17_21
             Console.WriteLine("Is the second array a subsequence of the first array? " + result);
         }
 
+        // checker method
         public bool IsSecondArrayASubsequenceOfFirstArray() {
             List<int> foundMatches = GetFoundMatches();
 
@@ -37,6 +38,7 @@ namespace Hacker_Challenge_6_17_21
             return Enumerable.SequenceEqual(foundMatches.ToArray(), secondArray);
         }
 
+        // helper method to get found matches in order of discovery
         public List<int> GetFoundMatches() {
             List<int> foundMatches = new List<int>();
 
