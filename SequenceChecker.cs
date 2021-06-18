@@ -20,7 +20,7 @@ namespace Hacker_Challenge_6_17_21 {
             debug = d;
         }
 
-        // driver method to display relevant information, call the checker and display the result
+        // driver method to display relevant information, call the checker and set the result
         public void PerformCheck() {
             Console.WriteLine("First Array: " + string.Join(", ", firstArray));
             Console.WriteLine("Second Array: " + string.Join(", ", secondArray));
