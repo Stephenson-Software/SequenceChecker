@@ -28,7 +28,7 @@ Is the second array a subsequence of the first array? True
 ```
 
 # Usage
-The `SequenceChecker` class exposes three methods, which are intended to be called in this order:
+The `SequenceChecker` class lives in the `Hacker_Challenge_6_17_21` namespace and exposes three methods, which are intended to be called in this order:
 
 | Method | Description |
 |--------|-------------|
