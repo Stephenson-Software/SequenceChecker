@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Hacker_Challenge_6_17_21 {
-    class SequenceChecker {
+    public class SequenceChecker {
         bool debug = false;
 
         int[] firstArray;
