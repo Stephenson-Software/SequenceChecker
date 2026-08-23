@@ -47,4 +47,4 @@ The call order is not enforced. `GetResult()` returns `false` when `PerformCheck
 
 As the problem statement states, both arrays are expected to be non-empty; an empty second array is not currently handled (see issue #3).
 
-The class carries no access modifier, so it defaults to `internal` and is not visible outside this assembly. Reuse from another project is therefore not yet possible (see issue #2).
+`SequenceChecker` is `public`, so it is visible to other assemblies. The project still declares `<OutputType>Exe</OutputType>`, so consuming the class from another project means referencing this executable assembly rather than a library. The `Driver` class carries no access modifier and stays `internal`; it exists only to run the bundled example.
