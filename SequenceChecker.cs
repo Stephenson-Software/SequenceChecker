@@ -53,16 +53,17 @@ namespace Hacker_Challenge_6_17_21 {
             int index = 0;
             for (int i = 0; i < firstArray.Length; i++) {
 
+                if (index == secondArray.Length) {
+                    // every element of the second array has been found, or the second array is
+                    // empty, and reading secondArray[index] would result in an exception
+                    break;
+                }
+
                 if (debug) { Console.WriteLine("[DEBUG] Comparing " + firstArray[i] + " with " + secondArray[index]); }
 
                 if (firstArray[i] == secondArray[index]) {
                     foundMatches.Add(firstArray[i]);
                     index++;
-                }
-
-                if (index == secondArray.Length) {
-                    // we have already found the sequence, further checking would result in an exception
-                    break;
                 }
             }
             return foundMatches;

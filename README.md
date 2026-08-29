@@ -45,6 +45,6 @@ bool result = checker.GetResult();
 
 The call order is not enforced. `GetResult()` returns `false` when `PerformCheck()` has not been called, which is indistinguishable from a completed check that found no subsequence (see issue #4), and `PerformCheck()` throws when `Initialize()` has not been called.
 
-As the problem statement states, both arrays are expected to be non-empty; an empty second array is not currently handled (see issue #3).
+As the problem statement states, both arrays are expected to be non-empty. Empty input is nonetheless accepted rather than throwing: an empty second array is reported as a subsequence of any first array, following the convention that the empty sequence is a subsequence of every sequence, and an empty first array is reported as containing no non-empty second array.
 
 `SequenceChecker` is `public`, so it is visible to other assemblies. The project still declares `<OutputType>Exe</OutputType>`, so consuming the class from another project means referencing this executable assembly rather than a library. The `Driver` class carries no access modifier and stays `internal`; it exists only to run the bundled example.
