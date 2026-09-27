@@ -13,7 +13,7 @@ namespace Hacker_Challenge_6_17_21 {
 
         // public methods -------------------------------------------------------------
 
-        // initializes the first and second arrays
+        // initializes the first and second arrays; must be called before PerformCheck
         public void Initialize(int[] first, int[] second, bool d = false) {
             firstArray = first;
             secondArray = second;
@@ -21,6 +21,7 @@ namespace Hacker_Challenge_6_17_21 {
         }
 
         // driver method to display relevant information, call the checker and set the result
+        // (throws if Initialize has not been called, since the arrays are still null)
         public void PerformCheck() {
             Console.WriteLine("First Array: " + string.Join(", ", firstArray));
             Console.WriteLine("Second Array: " + string.Join(", ", secondArray));
@@ -28,6 +29,8 @@ namespace Hacker_Challenge_6_17_21 {
             result = IsSecondArrayASubsequenceOfFirstArray();
         }
 
+        // returns the outcome of the last check; false if PerformCheck has not been called,
+        // which is indistinguishable from a completed check that found no subsequence
         public bool GetResult() {
             return result;
         }
